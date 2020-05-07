@@ -10,7 +10,20 @@ public class CompteEpargne extends Compte{
     }
 
     public void calculerInterets(double tauxInteret, double solde){
+
         this.solde += solde * tauxInteret/100;
+    }
+
+    public void debiter(double montant) {
+        if (montant > 0 && (this.solde - montant) > 0) {
+            this.solde -= montant;
+        } else {
+            System.out.println("Echec de l'opération");
+        }
+    }
+
+    public boolean isDebitAutorise() {
+        return false;
     }
 
     //GETTERS AND SETTERS

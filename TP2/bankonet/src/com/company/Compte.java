@@ -1,6 +1,6 @@
 package com.company;
 
-public class Compte {
+public abstract class Compte {
 
     protected String numero;
     protected String intitule;
@@ -29,21 +29,9 @@ public class Compte {
         }
     }
 
-    public void debiter(double montant){
-        if(montant >= 0.00) {
-            double totalApresDebit = this.solde - montant;
+    public abstract void debiter(double p_money);
 
-            if (totalApresDebit < (-this.montantDecouvertAutorise)) {
-                System.out.println("Le montant du découvert total a été dépassé. Le solde s'élève maintenant à " + this.solde);
-            } else {
-                this.solde -= montant;
-                System.out.println("Le montant du découvert total est respecté. Le solde s'élève maintenant à " + this.solde);
-            }
-        }
-        else{
-            System.out.println("Le montant a débité ne peut pas être négatif. Le solde reste donc à " + this.solde);
-        }
-    }
+    public abstract boolean isDebitAutorise();
 
 
     //GETTERS AND SETTERS

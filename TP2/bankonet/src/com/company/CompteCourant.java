@@ -9,6 +9,17 @@ public class CompteCourant extends Compte{
         nbCompteCourants++;
     }
 
+    public void debiter(double montant) {
+        if ((montant > 0.00) && (this.solde - montant) > (0 - this.montantDecouvertAutorise)) {
+            this.solde -= montant;
+        } else {
+            System.out.println("Echec de l'opération");
+        }
+    }
+
+    public boolean isDebitAutorise() {
+        return true;
+    }
 
 
     //GETTERS AND SETTERS
